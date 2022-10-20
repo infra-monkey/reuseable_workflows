@@ -27,7 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ inputs.branch-name }}
           path: ${{ inputs.role-name }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
