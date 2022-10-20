@@ -8,7 +8,7 @@ on:
         type: string
 defaults:
   run:
-    working-directory: ${{ inputs.role-name }}
+    working-directory: ${{ github.event.inputs.role-name }}
 jobs:
   molecule-check:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          path: ${{ inputs.role-name }}
+          path: ${{ github.event.inputs.role-name }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
