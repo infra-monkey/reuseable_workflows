@@ -6,6 +6,10 @@ on:
       role-name:
         required: true
         type: string
+      branch-name:
+        required: false
+        default: "main"
+        type: string
 jobs:
   molecule-check:
     runs-on: ubuntu-latest
@@ -23,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ inputs.branch-name }}
           path: ${{ inputs.role-name }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
