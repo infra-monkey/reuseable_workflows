@@ -25,6 +25,7 @@ jobs:
           - "rockylinux9"
           - "debian10"
           - "debian11"
+          - "debian12"
     steps:
       - uses: actions/checkout@v3
         with:

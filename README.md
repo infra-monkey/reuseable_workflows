@@ -9,6 +9,7 @@ Workflow called for molecule testing when creating a pull request on branch main
 Tested operating systems:
 - Debian 10
 - Debian 11
+- Debian 12
 - Centos Stream 8
 - Rocky Linux 9
 
