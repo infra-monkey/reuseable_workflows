@@ -21,11 +21,10 @@ jobs:
         #   - "3.10"
         #   - "3.11"
         distro:
-          - "centos8"
-          - "rockylinux9"
-          - "debian10"
-          - "debian11"
-          - "debian12"
+          - "debian"
+        release:
+          - "11"
+          - "12"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
