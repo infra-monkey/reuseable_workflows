@@ -42,7 +42,7 @@ jobs:
       - name: Test with molecule
         uses: robertdebock/molecule-action@4.0.9
         with:
-          command: lint
+          command: test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
