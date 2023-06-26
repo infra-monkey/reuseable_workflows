@@ -16,10 +16,6 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        # python-version:
-        #   - "3.9"
-        #   - "3.10"
-        #   - "3.11"
         distro:
           - "debian"
         release:
