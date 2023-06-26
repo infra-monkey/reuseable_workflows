@@ -40,12 +40,12 @@ jobs:
       #     python3 -m pip install --upgrade pip
       #     python3 -m pip install ansible ansible-lint
       - name: Test with molecule
-        uses: robertdebock/molecule-action@5.0.3
+        uses: robertdebock/molecule-action@4.0.9
         with:
           command: lint
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-        working-directory: ${{ inputs.role-name }}
+        # working-directory: ${{ inputs.role-name }}
         # run: molecule test
