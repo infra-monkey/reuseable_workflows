@@ -27,7 +27,8 @@ jobs:
           - "debian11"
           - "debian12"
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           path: ${{ inputs.role-name }}
       # - name: Set up Python ${{ matrix.python-version }}
@@ -46,5 +47,5 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-        # working-directory: ${{ inputs.role-name }}
+        working-directory: ${{ inputs.role-name }}
         # run: molecule test
