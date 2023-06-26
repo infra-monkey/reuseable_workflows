@@ -30,5 +30,6 @@ jobs:
         uses: robertdebock/molecule-action@4.0.9
         with:
           image: "${{ matrix.distro }}"
+          tag: "${{ matrix.release }}"
           options: parallel
           command: test
