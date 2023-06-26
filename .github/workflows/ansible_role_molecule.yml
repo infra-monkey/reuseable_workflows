@@ -32,7 +32,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Test with molecule
-        uses: robertdebock/molecule-action@5.0.3
+        uses: robertdebock/molecule-action@4.0.9
         with:
           image: "${{ matrix.distro }}"
           options: parallel
