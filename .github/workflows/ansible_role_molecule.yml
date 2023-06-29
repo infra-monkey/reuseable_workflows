@@ -11,14 +11,12 @@ on:
         default: "main"
         type: string
 jobs:
-  molecule-check:
+  molecule-check-debian:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
-        distro:
-          - "debian"
-        release:
+        tag:
           - "bullseye"
           - "bookworm"
     steps:
@@ -30,7 +28,6 @@ jobs:
         uses: robertdebock/molecule-action@4.0.9
         with:
           namespace: "robertdebock"
-          image: "${{ matrix.distro }}"
-          tag: "${{ matrix.release }}"
-          options: parallel
+          image: "debian"
+          tag: "${{ matrix.tag }}"
           command: test
