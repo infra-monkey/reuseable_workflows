@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v3
       - name: ansible-lint
         uses: ansible-community/ansible-lint-action@main
-  molecule-check-debian:
+  molecule-check:
+    needs:
+      - lint
     runs-on: ubuntu-20.04
     strategy:
       max-parallel: 4
