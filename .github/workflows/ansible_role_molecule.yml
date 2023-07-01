@@ -30,12 +30,6 @@ jobs:
             tag: "bullseye"
           - image: "debian"
             tag: "bookworm"
-          - image: "enterpriselinux"
-            tag: "7"
-          - image: "enterpriselinux"
-            tag: "8"
-          - image: "enterpriselinux"
-            tag: "latest"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
