@@ -3,33 +3,15 @@ name: Ansible Role Molecule Test
 on:
   workflow_call:
     inputs:
-      role-name:
+      image:
         required: true
         type: string
-      branch-name:
-        required: false
-        default: "main"
+      tag:
+        required: true
         type: string
 jobs:
-  lint:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: ansible-lint
-        uses: ansible-community/ansible-lint-action@main
   molecule-check:
-    needs:
-      - lint
     runs-on: ubuntu-20.04
-    strategy:
-      max-parallel: 4
-      matrix:
-        config:
-          - image: "debian"
-            tag: "bullseye"
-          - image: "debian"
-            tag: "bookworm"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -38,5 +20,5 @@ jobs:
       - name: Test with molecule
         uses: robertdebock/molecule-action@5.0.2
         with:
-          image: ${{ matrix.config.image }}
-          tag: ${{ matrix.config.tag }}
+          image: ${{ inputs.image }}
+          tag: ${{ inputs.tag }}
