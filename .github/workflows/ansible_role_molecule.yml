@@ -3,10 +3,19 @@ name: Ansible Role Molecule Test
 on:
   workflow_call:
     inputs:
+      namespace:
+        description: 'The namespace of the container to use for molecule test'
+        default: 'robertdebock'
+        required: false
+        type: string
       image:
+        description: 'The name of the container to use for molecule test'
+        default: 'debian'
         required: true
         type: string
       tag:
+        description: 'The tag of the container to use for molecule test'
+        default: 'bookworm'
         required: true
         type: string
 jobs:
@@ -20,5 +29,6 @@ jobs:
       - name: Test with molecule
         uses: robertdebock/molecule-action@5.0.2
         with:
+          namespace: ${{ inputs.namespace }}
           image: ${{ inputs.image }}
           tag: ${{ inputs.tag }}
